@@ -40,6 +40,7 @@ class List{
 		void add(T);
 		T find(T);
 		void update(T,T);
+		T remove_first();
 		T remove(T);
 		
 		string toString() const;
@@ -132,8 +133,47 @@ void List<T>::update(T pos,T val){
 //Delete 
 
 template <class T>
+T List<T>::remove_first(){
+	T val;
+	Link<T> *p, *q;
+	
+	p = head;
+	q = p;
+	p = p->next;
+	val = q->value;
+	head = p;
+	
+	delete q;
+	
+	return val;
+}
+
+template <class T>
 T List<T>::remove(T pos){
-	return 0;
+	int index;
+	T val;
+	Link<T> *p, *q;
+	
+	if (pos == 0){
+		return remove_first();
+	}
+	
+	q = 0;
+	p = head;
+	index = 0;
+	while (index != pos){
+		q = p;
+		p = p->next;
+		index++;
+	}
+	
+	val = p->value;
+	q->next = p->next;
+	size--;
+	
+	delete p;
+	
+	return val;
 }
 
 //ToString

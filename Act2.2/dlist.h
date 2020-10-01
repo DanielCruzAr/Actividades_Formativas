@@ -1,5 +1,5 @@
-#ifndef DDList_H_
-#define DDList_H_
+#ifndef DList_H_
+#define DList_H_
 
 #include <iostream>
 #include <sstream>
@@ -218,4 +218,4 @@ string DList<T>::toStringBackward() const {
 }
 
 
-#endif /* DDList_H_ */ 
+#endif /* DList_H_ */ 

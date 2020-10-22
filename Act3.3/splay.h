@@ -14,7 +14,6 @@ class Node {
 private:
 
   T value;
-  int size;
   Node *left, *right, *parent;
 
   Node<T>* succesor();
@@ -24,7 +23,7 @@ private:
 public:
 
   Node (T);
-  Node (T, Node<T>*, Node<T>*, Node<T>*, int); 
+  Node (T, Node<T>*, Node<T>*, Node<T>*); 
   Node<T>* add(T);
   Node<T>* find(T);
   Node<T>* remove(T);
@@ -38,10 +37,10 @@ public:
 };
 
 template <class T>
-Node<T>::Node(T val) : value(val), size(0), left(0), right(0), parent(0) {}
+Node<T>::Node(T val) : value(val), left(0), right(0), parent(0) {}
 
 template <class T>
-Node<T>::Node(T val, Node<T> *le, Node<T> *ri, Node<T> *p, int sze) : value(val), left(le), right(ri), parent(p), size(sze){}
+Node<T>::Node(T val, Node<T> *le, Node<T> *ri, Node<T> *p) : value(val), left(le), right(ri), parent(p) {}
 
 template <class T>
 Node<T>* Node<T>::add(T val) {
@@ -53,7 +52,6 @@ if (val < value) {
   else {
     left = new Node<T>(val);
     left->parent = this;
-	size++;
     return left;
   }
   } else {
@@ -62,7 +60,6 @@ if (val < value) {
     } else {
       right = new Node<T>(val);
       right->parent = this;
-	  size++;
       return right;
     }
   }
@@ -128,7 +125,6 @@ if (val < value) {
       }
       left = succ;
       delete old;
-	  size--;
       return this;
     } else {
       return left->remove(val);
@@ -306,7 +302,8 @@ class SplayTree {
 
 private:
   Node<T> *root;
-
+  int size;
+  
 public:
   SplayTree();
   bool empty() const;
@@ -320,7 +317,7 @@ public:
 };
 
 template <class T>
-SplayTree<T>::SplayTree() : root(0) {}
+SplayTree<T>::SplayTree() : root(0), size(0) {}
 
 template <class T>
 bool SplayTree<T>::empty() const {
@@ -336,6 +333,7 @@ void SplayTree<T>::add(T val) {
   else {
     root = new Node<T>(val);
   }
+  size++;
 }
 
 template <class T>
@@ -359,6 +357,7 @@ void SplayTree<T>::remove(T val) {
       root = root->splay(root,p);
     }
   }
+  size--;
 }
 
 template <class T>

@@ -1,2 +1,2 @@
 # Actividades Formativas
-Corregir 3.1 función heigh()
+Corregir 3.1 función height()

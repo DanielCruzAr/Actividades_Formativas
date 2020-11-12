@@ -146,7 +146,6 @@ if (val < value) {
       }
       right = succ;
       delete old;
-	  size--;
       return this;
   } else {
     return right->remove(val);
@@ -302,7 +301,7 @@ class SplayTree {
 
 private:
   Node<T> *root;
-  int size;
+  int dysize;
   
 public:
   SplayTree();
@@ -317,7 +316,7 @@ public:
 };
 
 template <class T>
-SplayTree<T>::SplayTree() : root(0), size(0) {}
+SplayTree<T>::SplayTree() : root(0), dysize(0) {}
 
 template <class T>
 bool SplayTree<T>::empty() const {
@@ -333,7 +332,7 @@ void SplayTree<T>::add(T val) {
   else {
     root = new Node<T>(val);
   }
-  size++;
+  dysize++;
 }
 
 template <class T>
@@ -357,7 +356,7 @@ void SplayTree<T>::remove(T val) {
       root = root->splay(root,p);
     }
   }
-  size--;
+  dysize--;
 }
 
 template <class T>
@@ -409,7 +408,7 @@ string SplayTree<T>::preorder() const {
 
 template <class T>
 int SplayTree<T>::size(){
-	return size;
+	return dysize;
 }
 
 #endif

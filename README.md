@@ -1,2 +1,2 @@
 # Actividades Formativas
-Corregir 3.1 función height()
+Corrección del análisis de complejidad en función height(), actividad 3.1

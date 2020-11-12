@@ -1,9 +1,5 @@
 # Análisis de complejidad
-## loadGraphMat()
-Recorre todos los elementos del archivo de texto y almacena cada dato en una matriz. Complejidad O(n).
-## loadGraphList()
-Recorre todos los elementos del archivo de texto y almacena cada dato en una matriz. Complejidad O(n).
-## DFS()
-Contiene ciclos for anidados los cuales se incrementan de uno en uno recorriendo toda la lista. Complejidad O(n^2) en el peor de los casos. 
-## BFS()
-Contiene ciclos for anidados los cuales se incrementan de uno en uno recorriendo toda la matriz. Complejidad O(n^2) en el peor de los casos. 
+## loadGraphMat() y loadGraphList()
+Recorre todos los elementos del archivo de texto y los almacena en una matriz. Ambas funciones son de complejidad O(n) si tomamos en cuenta unicamente los nodos.
+## DFS() y BFS()
+Contiene ciclos for anidados los cuales se incrementan de uno en uno recorriendo todo el grafo. Si nos guiamos por esta lógica, ambas funciones son de complejidad O(n), recordemos que BFS busca el elemento por el camino más óptimo a diferencia de DFS. 

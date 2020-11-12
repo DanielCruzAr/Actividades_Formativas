@@ -10,16 +10,6 @@
 
 using namespace std;
 
-
-string print_vector(vector<int> vec){
-	string result = "";
-	for (int i=0; i<vec.size(); i++){
-		result = result + to_string(vec[i]) + " ";
-	}
-	return result;
-}
-
-
 class Graph {
 	private:
 		vector<vector<int>> adj_matrix;
@@ -31,6 +21,7 @@ class Graph {
 		Graph(){}
 		void loadGraphMat(string,int,int);
 		void loadGraphList(string,int,int);
+		string print_vector(vector<int>);
 		string printAdjMat();
 		string printAdjList();
 		string DFS(int,int);
@@ -91,6 +82,15 @@ void Graph::loadGraphList(string file, int vertices, int edges){
 	}
 }
 
+/* PRINT */
+
+string Graph::print_vector(vector<int> vec){
+	string result = "";
+	for (int i=0; i<vec.size(); i++){
+		result = result + to_string(vec[i]) + " ";
+	}
+	return result;
+}
 
 string Graph::printAdjMat(){
 	string result = "";
@@ -101,7 +101,6 @@ string Graph::printAdjMat(){
 	}
 	return result;
 }
-
 
 string Graph::printAdjList(){
 	string result = "";
@@ -115,6 +114,7 @@ string Graph::printAdjList(){
 	return result;
 }
 
+/* BUSQUEDA */
 
 string Graph::DFS(int start, int target_vertex){
 	
